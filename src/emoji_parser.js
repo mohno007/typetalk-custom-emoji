@@ -5,14 +5,14 @@ export class EmojiParser {
 
   // 呼び出すたびにリセットされる
   get regex() {
-    let regex = this.regex;
+    let regex = this.re;
     if (regex) {
       regex.lastIndex = 0;
       return regex;
     }
 
-    const codeList = this.emojis.codeList();
-    return (this.regex = new RegExp(`:(${codeList.join('|')}):`, 'g'));
+    const codeList = this.emojis.codes();
+    return (this.re = new RegExp(`:(${codeList.join('|')}):`, 'g'));
   }
 
   *parse(text) {
@@ -24,9 +24,9 @@ export class EmojiParser {
       if (!match) break;
 
       yield {
-        key: match[1],
+        emoji: this.emojis.get(match[1]),
         leftEndIndex: match.index - 1,
-        rightFirstIndex: regex.lastIndex,
+        rightStartIndex: regex.lastIndex,
       };
     }
   }

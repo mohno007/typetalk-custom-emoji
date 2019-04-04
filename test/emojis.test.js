@@ -47,6 +47,20 @@ describe('Emojis', function() {
     });
   });
 
+  describe('#codes', function() {
+    it('は、絵文字コードの配列を返す', function() {
+      const emoji = new Emoji(
+        'smiley',
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEUAAAD+/v7KB/Q9AAAAFklEQVQI12P4z8TALMUAIu2Y2Bj+AwAbxwNogPCregAAAABJRU5ErkJggg=='
+      );
+      const emojis = Emojis.of(emoji);
+      const codes = emojis.codes();
+
+      Assert(codes instanceof Array);
+      Assert(codes[0] === emoji.code);
+    });
+  });
+
   describe('#toArray', function() {
     it('は、Emojiの配列を返す', function() {
       const emoji = new Emoji(

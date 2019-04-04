@@ -56,12 +56,6 @@ const createEmojiImage = (url, key) => {
   return img;
 };
 
-// class EmojiParser {}
-
-// class EmojiRegistry {}
-
-// class Emoji {}
-
 const replaceEmoji = messagePost => {
   const messageText = messagePost.querySelector('.message__txt');
 

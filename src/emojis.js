@@ -21,6 +21,12 @@ export class Emojis {
     return new this.constructor(new Map([...this.map, ...other.map]));
   }
 
+  codes() {
+    if (this.__codes) return this.__codes;
+
+    return (this.__codes = this.toArray().map(e => e.code));
+  }
+
   toArray() {
     if (this.array) return this.array;
 
