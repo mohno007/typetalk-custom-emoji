@@ -1,8 +1,6 @@
 export class EmojiParser {
-  constructor(emojiRegistry) {
-    Object.assign(this, {
-      emojiRegistry: emojiRegistry.clone(), // 防衛的コピー
-    });
+  constructor(emojis) {
+    Object.assign(this, { emojis });
   }
 
   // 呼び出すたびにリセットされる
@@ -13,7 +11,7 @@ export class EmojiParser {
       return regex;
     }
 
-    const codeList = this.emojiRegistry.codeList();
+    const codeList = this.emojis.codeList();
     return (this.regex = new RegExp(`:(${codeList.join('|')}):`, 'g'));
   }
 
