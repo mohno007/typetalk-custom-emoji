@@ -6,8 +6,8 @@
     "build": "rollup --config",
     "watch": "rollup --config --watch",
     "test": "rollup --config ./rollup-test.config.js && mocha --require intelli-espower-loader ./build/test/",
-	"coverage": "nyc npm test",
-	"coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc npm test",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint src/ test/",
     "fix": "eslint --fix src/ test/"
   },
@@ -19,23 +19,23 @@
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "coveralls": "^3.0.3",
-    "emoji-regex": "^7.0.1",
+    "emoji-regex": "^8.0.0",
     "eslint": "^5.9.0",
-    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^1.2.0",
     "intelli-espower-loader": "^1.0.1",
     "lint-staged": "^8.1.0",
-    "mocha": "^5.2.0",
+    "mocha": "^6.0.2",
     "node-emoji": "^1.8.1",
     "nyc": "^13.3.0",
     "power-assert": "^1.6.1",
-    "prettier": "1.15.3",
-    "rollup": "^0.67.3",
+    "prettier": "^1.16.4",
+    "rollup": "^1.9.0",
     "rollup-copy-plugin": "^0.1.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-json": "^3.1.0",
-    "rollup-plugin-node-resolve": "^4.0.0"
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-json": "^4.0.0",
+    "rollup-plugin-node-resolve": "^4.1.0"
   },
   "lint-staged": {
     "{src,test}/*.js": [
