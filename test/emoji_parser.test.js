@@ -16,7 +16,7 @@ describe('Emoji', function() {
     it('は、渡された文字列のパース結果を返すジェネレータを返すこと', function() {
       const gene = parser.parse('ABC :smiley: DEF :smiley: EFG');
 
-      Assert(gene[Symbol.iterator] !== undefined);
+      Assert(Symbol.iterator in gene);
     });
 
     it('が返すジェネレータは、絵文字と左側文字列の終了位置、右側文字列の開始位置を返す', function() {
