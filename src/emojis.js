@@ -28,8 +28,8 @@ export class Emojis {
   }
 
   toArray() {
-    if (this.array) return this.array;
+    if (this.__array) return this.__array;
 
-    return (this.array = [...this.map.values()]);
+    return (this.__array = [...this.map.values()]);
   }
 }
