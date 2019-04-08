@@ -61,15 +61,17 @@ const replaceEmoji = messagePost => {
 
   if (!(messageText && messageText.childNodes)) return;
 
-  Array.prototype.forEach.call(messageText.childNodes, text => {
-    regex.lastIndex = 0;
+  const texts = [...messageText.childNodes].reverse();
 
+  do {
+    const text = texts.pop();
     if (!(text instanceof Text)) return;
 
     const parent = text.parentNode;
     let textNode = text;
 
     for (;;) {
+      regex.lastIndex = 0;
       const match = regex.exec(textNode.textContent);
 
       if (!match) break;
@@ -89,10 +91,10 @@ const replaceEmoji = messagePost => {
       parent.insertBefore(rightNode, img.nextSibling);
 
       textNode = rightNode;
+      texts.push(rightNode);
     }
-  });
+  } while (texts.length > 0);
 };
-
 const handleMutation = mutationRecords => {
   mutationRecords.forEach(record => {
     if (record.type !== 'childList') return;
