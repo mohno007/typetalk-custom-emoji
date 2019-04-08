@@ -57,7 +57,7 @@ const createEmojiImage = (url, key) => {
 };
 
 const replaceEmoji = messagePost => {
-  const messageText = messagePost.querySelector('.message__txt');
+  const messageText = messagePost.querySelector('.message__txt-content');
 
   if (!(messageText && messageText.childNodes)) return;
 
@@ -79,7 +79,7 @@ const replaceEmoji = messagePost => {
 
       // create emoji
       const left = textNode.textContent.substr(0, match.index);
-      const img = createEmojiImage(emoji.url, emojis.code);
+      const img = createEmojiImage(emoji.url, emoji.code);
       const right = textNode.textContent.substr(regex.lastIndex);
 
       const rightNode = document.createTextNode(right);
