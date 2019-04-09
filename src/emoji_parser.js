@@ -4,11 +4,11 @@ export class EmojiParser {
   }
 
   // 呼び出すたびにリセットされる
-  get regex() {
+  // 並行処理プログラミングすると死ぬ
+  generateRegex() {
     let regex = this.re;
     if (regex) {
-      regex.lastIndex = 0;
-      return regex;
+      return new RegExp(regex);
     }
 
     const codeList = this.emojis.codes();
@@ -39,7 +39,7 @@ export class EmojiParser {
   }
 
   *parse(text) {
-    const regex = this.regex;
+    const regex = this.generateRegex();
 
     for (;;) {
       const match = regex.exec(text);
