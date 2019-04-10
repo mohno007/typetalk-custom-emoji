@@ -8,8 +8,21 @@ Typetalk Custom Emoji
 ---
 
 1. [Tampermonkey](https://tampermonkey.net/)をインストールする
-1. `npm run build`
-1. `dist/TypetalkCustomEmoji.user.js` をブラウザにドラッグ＆ドロップ
+1. <https://mohno007.github.io/typetalk-custom-emoji/TypetalkCustomEmoji.user.js> を開く
+1. インストールする
+
+使い方
+---
+今は、<https://github.com/mohno007/typetalk-custom-emoji/blob/master/src/emojis_definition.js>の絵文字だけが使えます。
+
+1. メッセージ欄に `:kansha:` のように、絵文字の名前をコロンで囲って入力します。
+1. 送信します
+1. Typetalk Custom Emoji をインストールしている人には、絵文字が画像に置き換えられて表示されます。
+
+Tips
+---
+
+* 絵文字はコピーできます。
 
 設定
 ---
