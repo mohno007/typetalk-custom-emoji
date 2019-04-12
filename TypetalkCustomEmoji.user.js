@@ -5,7 +5,7 @@
 // @downloadURL  https://mohno007.github.io/typetalk-custom-emoji/TypetalkCustomEmoji.user.js
 // @updateURL    https://mohno007.github.io/typetalk-custom-emoji/TypetalkCustomEmoji.user.js
 // @supportURL   https://github.com/mohno007/typetalk-custom-emoji/issues/new
-// @version      0.1.3
+// @version      0.1.4
 // @description  Emoji Reaction
 // @author       m-ohno
 // @match        https://typetalk.com/*
@@ -36,7 +36,6 @@
     }
   }
 
-  // Mutable
   class Emojis {
     static of(...emojis) {
       const map = emojis.reduce(
@@ -60,15 +59,11 @@
     }
 
     codes() {
-      if (this.__codes) return this.__codes;
-
-      return (this.__codes = this.toArray().map(e => e.code));
+      return this.toArray().map(e => e.code);
     }
 
     toArray() {
-      if (this.__array) return this.__array;
-
-      return (this.__array = [...this.map.values()]);
+      return [...this.map.values()];
     }
   }
 
