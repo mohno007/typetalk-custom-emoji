@@ -14,10 +14,7 @@ export default [
       sourcemap: 'inline',
     },
     plugins: [
-      nodeResolve({
-        jsnext: true,
-        main: true,
-      }),
+      nodeResolve(),
       commonjs({
         include: 'node_modules/**',
         sourceMap: false,

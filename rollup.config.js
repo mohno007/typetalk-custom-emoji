@@ -1,7 +1,9 @@
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import nodeJson from 'rollup-plugin-json';
+import copy from 'rollup-plugin-copy';
 import fs from 'fs';
+import { glob } from 'glob';
 
 const packageJson = JSON.parse(fs.readFileSync("package.json"));
 const banner = `
@@ -44,10 +46,11 @@ export default [
       banner,
     },
     plugins: [
-      nodeResolve({
-        jsnext: true,
-        main: true,
+      copy({
+        targets: [...glob.sync('static/*')],
+        outputFolder: 'dist/',
       }),
+      nodeResolve(),
       commonjs({
         include: 'node_modules/**',
         sourceMap: false,
