@@ -3,8 +3,6 @@ export class EmojiParser {
     Object.assign(this, { emojis });
   }
 
-  // 呼び出すたびにリセットされる
-  // 並行処理プログラミングすると死ぬ
   generateRegex() {
     let regex = this.re;
     if (regex) {

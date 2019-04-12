@@ -1,4 +1,3 @@
-// Mutable
 export class Emojis {
   static of(...emojis) {
     const map = emojis.reduce(
@@ -22,14 +21,10 @@ export class Emojis {
   }
 
   codes() {
-    if (this.__codes) return this.__codes;
-
-    return (this.__codes = this.toArray().map(e => e.code));
+    return this.toArray().map(e => e.code);
   }
 
   toArray() {
-    if (this.__array) return this.__array;
-
-    return (this.__array = [...this.map.values()]);
+    return [...this.map.values()];
   }
 }
